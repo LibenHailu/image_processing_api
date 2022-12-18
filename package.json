@@ -5,10 +5,11 @@
     "main": "index.js",
     "scripts": {
         "build": "npx tsc",
+        "jasmine": "jasmine",
+        "test": "npm run build && npm run jasmine",
         "start": "nodemon src/index.ts",
         "lint": "eslint . --ext .ts && npm run prettier",
-        "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
     },
     "repository": {
         "type": "git",
@@ -23,9 +24,11 @@
     "homepage": "https://github.com/LibenHailu/image_processing_api#readme",
     "devDependencies": {
         "@types/express": "^4.17.14",
+        "@types/jasmine": "^4.3.1",
         "@types/node": "^18.11.13",
         "@types/pug": "^2.0.6",
         "@types/sharp": "^0.31.0",
+        "@types/supertest": "^2.0.12",
         "@typescript-eslint/eslint-plugin": "^5.46.0",
         "@typescript-eslint/parser": "^5.46.0",
         "eslint": "^8.29.0",
@@ -36,7 +39,9 @@
     },
     "dependencies": {
         "express": "^4.18.2",
-        "pug": "^3.0.2",
-        "sharp": "^0.31.2"
+        "jasmine": "^4.5.0",
+        "jasmine-spec-reporter": "^7.0.0",
+        "sharp": "^0.31.2",
+        "supertest": "^6.1.3"
     }
 }
