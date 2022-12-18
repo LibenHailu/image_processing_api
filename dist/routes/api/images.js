@@ -21,7 +21,7 @@ const middle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
     const height = Number(req.query.height);
     try {
         // checks if the requested image exists
-        const fileExists = yield (0, images_1.getFile)(filename);
+        yield (0, images_1.getFile)(filename);
         // checks if an image was cached before
         const cacheExists = yield (0, images_1.getCache)(filename, width, height);
         // sends an image if the requested image is in the cache and has the requested meta
@@ -36,7 +36,7 @@ const middle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
         }
     }
     catch (err) {
-        res.status(404);
+        res.status(400);
         res.send(err);
     }
 });
@@ -52,7 +52,7 @@ images.get('/', middle, (req, res) => __awaiter(void 0, void 0, void 0, function
         });
     }
     catch (err) {
-        res.status(404);
+        res.status(400);
         res.send(err);
     }
 }));

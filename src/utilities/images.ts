@@ -57,7 +57,7 @@ export const getCache = async (
 
     const isCached = meta.width == width && meta.height == height
 
-    return new Promise<boolean>((resolve, reject) => {
+    return new Promise<boolean>((resolve) => {
         if (isCached) {
             resolve(true)
         } else {

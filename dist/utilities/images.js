@@ -60,7 +60,7 @@ const getCache = (filename, width, height) => __awaiter(void 0, void 0, void 0, 
     }
     const meta = yield (0, sharp_1.default)(`./images/thumb/${filename}_thumb.jpg`).metadata();
     const isCached = meta.width == width && meta.height == height;
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         if (isCached) {
             resolve(true);
         }

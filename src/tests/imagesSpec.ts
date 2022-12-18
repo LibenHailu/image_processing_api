@@ -43,6 +43,6 @@ afterAll(async () => {
     try {
         await fsPromises.unlink(`./images/thumb/fjord_thumb.jpg`)
     } catch (err) {
-        console.log(err)
+        // console.log(err)
     }
 })

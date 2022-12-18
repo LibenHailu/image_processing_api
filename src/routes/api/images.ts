@@ -14,7 +14,7 @@ const middle = async (
 
     try {
         // checks if the requested image exists
-        const fileExists = await getFile(filename)
+        await getFile(filename)
         // checks if an image was cached before
         const cacheExists = await getCache(filename, width, height)
         // sends an image if the requested image is in the cache and has the requested meta

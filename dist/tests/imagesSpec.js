@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const images_1 = require("../utilities/images");
+const fs_1 = require("fs");
 describe('Test resize image function', () => {
     it('expect resize not to throw error', () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield (0, images_1.resize)('fjord', 200, 200);
@@ -37,3 +38,12 @@ describe('Test getCache  function', () => {
         yield expectAsync((0, images_1.getCache)('fjord', 200, 100)).toBeResolvedTo(false);
     }));
 });
+// clean up after the creating of image during the test
+afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield fs_1.promises.unlink(`./images/thumb/fjord_thumb.jpg`);
+    }
+    catch (err) {
+        // console.log(err)
+    }
+}));
