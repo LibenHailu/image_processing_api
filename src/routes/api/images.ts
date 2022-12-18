@@ -7,7 +7,7 @@ const middle = async (
     req: express.Request,
     res: express.Response,
     next: express.NextFunction
-) => {
+): Promise<void> => {
     const filename = req.query.filename as string
     const width = Number(req.query.width)
     const height = Number(req.query.height)

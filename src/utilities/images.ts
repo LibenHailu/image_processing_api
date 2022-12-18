@@ -7,7 +7,7 @@ export const resize = async (
     filename: string,
     width: number,
     height: number
-) => {
+): Promise<void> => {
     // process an image using sharp library
     try {
         await sharp(`./images/full/${filename}.jpg`)
@@ -23,7 +23,7 @@ export const resize = async (
 }
 
 // getFile checks if a file exists or not
-export const getFile = async (filename: string) => {
+export const getFile = async (filename: string): Promise<string> => {
     const path = `./images/full/${filename}.jpg`
     const fileExists = await fsPromises
         .stat(path)
@@ -42,7 +42,7 @@ export const getCache = async (
     filename: string,
     width: number,
     height: number
-) => {
+): Promise<boolean> => {
     const cache_path = `./images/thumb/${filename}_thumb.jpg`
     const cacheExists = await fsPromises
         .stat(cache_path)
